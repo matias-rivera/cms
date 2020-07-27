@@ -19,7 +19,7 @@
 
         </ul>
        
-
+        {{-- Categories bar --}}
         <ul class="list-group list-group-horizontal">
             
             @for ($i = 0; $i < min(10,$categories->count()); $i++)

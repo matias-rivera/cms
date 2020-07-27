@@ -36,8 +36,9 @@
                 $categories_class = "d-none  d-xl-block";
             @endphp
            
-
-            <li class="list-group-item flex-fill {{$categories_class}}"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
+                @if (isset($categories[$i]))
+                    <li class="list-group-item flex-fill {{$categories_class}}"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
+                @endif
             @endfor
         </ul>
       

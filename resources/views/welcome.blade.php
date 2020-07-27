@@ -26,7 +26,7 @@
           </div>
         </header> --}}
         
-        <header class="masthead">
+      {{--   <header class="masthead">
           <div class="container h-100">
             <div class="row h-100 align-items-center">
               <div class="col-12 text-center">
@@ -38,7 +38,7 @@
               </div>
             </div>
           </div>
-        </header>
+        </header> --}}
 
 
         <!-- /.header -->
@@ -94,129 +94,129 @@
         </div>
       </div>
     </main> --}}
+  
 
-    <div class="container ">
-
-      <div class="row">
-  
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-  
-          <h1 class="my-4">Informática
-            <small>Últimos posts</small>
-          </h1>
-  
-  
-  
-            @forelse ($posts as $post)
-            <!-- Blog Post -->
-            <div class="card mb-4">
-    
-              <a href="{{route('blog.show',$post->id)}}">
-                <img class="card-img-top" src="{{asset("storage/".$post->image)}}" alt="Card image cap">
-              </a>
-              <div class="card-body">
-                <a href="{{route('blog.show',$post->id)}}">
-                <h2 class="card-title">{{$post->title}}</h2>
-                </a>
-                <p class="card-text">{{$post->description}}</p>
-              </div>
-              <div class="card-footer text-muted">
-                {{-- Posted on January 1, 2020 by
-                <a href="#">Start Bootstrap</a> --}}
-                {{$post->category->name}}
-                -
-                @foreach ($post->tags as $tag)
-                <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
-              @endforeach
-              </div>
+    <div class="container bg-light">
+   {{--  @forelse ($posts as $post) --}}
+      @if ($posts->count() > 3)
+              
+      <!-- Main Post Row -->
+      <div class=" row">
+        <!-- Main Post Column -->
+          <div class="col-md-8">  
+            <!-- Main Post -->
+            <div class="bg-light  px-3 mt-2"> 
+                <a href="{{route('blog.show',$posts[0]->id)}}"><h2 class="pt-2">{{$posts[0]->title}}</h2></a>
+                <p class="">{{$posts[0]->description}}</p>
+                <a href="{{route('blog.show',$posts[0]->id)}}">
+                <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[0]->image)}}" style="width:100%" alt="Card image cap">
+                </a>  
             </div>
-  
-            @empty
+          </div>
+        <!-- Second Post Column -->
+          <div class="col-md-4">  
+            <!-- Second Post -->
+            <div class="bg-light mt-2 px-3"> 
+              <a href="{{route('blog.show',$posts[1]->id)}}"><h6 class="pt-2">{{$posts[1]->title}}</h6></a>
+              <a href="{{route('blog.show',$posts[1]->id)}}">
+              <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[1]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
+              </a>  
+            </div>
+            <!-- Third Post -->
+            <div class="bg-light mt-2 px-3"> 
+              <a href="{{route('blog.show',$posts[2]->id)}}"><h6 class="pt-2">{{$posts[2]->title}}</h6></a>
+              <a href="{{route('blog.show',$posts[2]->id)}}">
+              <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[2]->image)}}" style="width:100%; max-height:180px" alt="Card image cap">
+              </a>  
+            </div>
+          </div>
+      </div>
+      <!-- / Main Post Row -->
+      @php
+      $index = 2;
+      $limit = 5;
+      $class = "col-md-4";
+      $four_row = false; 
+      @endphp
+        
+      <!-- Post Row -->
+      @for ($j = 0; $j < 7; $j++)
+
+      @if ($limit > $posts->count())
+          @break
+      @endif
+      
+      
+      <hr class="my-1">
+      <div class="row no-gutters">
+          @for ($i = $index; $i < $limit; $i++)
+                <!-- Post -->
+            <div class= "{{$class}}"> 
+              <div class="bg-light mx-1 mt-1">
+              <a href="{{route('blog.show',$posts[$i]->id)}}"><h6 class="px-1">{{$posts[$i]->title}}</h6></a>
+              <a href="{{route('blog.show',$posts[$i]->id)}}">
+              <img  class="img-responsive px-1 pb-1" src="{{asset("storage/".$posts[$i]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
+              </a> 
+              </div> 
+            </div>
+
+            @if ($i == $limit - 1)
+                
+                  @php
+                      
+                      $index = $limit;
+                      if($four_row == false){
+                        $four_row = true;
+                        $limit = $limit + 4;
+                        $class = "col-md-3";
+                      }
+                      else{
+                        $four_row = false;
+                        $limit = $limit + 3;
+                        $class = "col-md-4";
+                      }
+
+                  @endphp
+              @break
+            @endif
+            
+          @endfor
+         
+      </div>
+
+      @endfor
+
+
+      
+    @endif
+{{--     @empty
             <p class="text-center">
             No result found for query <strong>{{request()->query('search')}}</strong>
             </p>
             
-            @endforelse
-  
-          {{$posts->appends(['search' => request()->query('search')])->links()}}
-            </div>
-          <!-- Pagination -->
-         {{--  <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
-          </ul> --}}
-  
-         
-  
-   {{--        <div class="row">
-            <!-- latest post -->
-            <div class="col-md-6 col-lg-3">
-              <div class="card mb-4">
-                <img class="card-img-top d-none d-md-block" src="http://placehold.it/100x100" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Post Title</h5>
-                  </div>
-      
-              </div>
-            </div>
-            <!-- latest post -->
-          
-            <!-- latest post -->
-            <div class="col-md-6 col-lg-3">
-              <div class="card mb-4">
-                <img class="card-img-top d-none d-md-block" src="http://placehold.it/100x100" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Post Title</h5>
-                  </div>
-      
-              </div>
-            </div>
-            <!-- latest post -->
-  
-              <!-- latest post -->
-              <div class="col-md-6 col-lg-3">
-                <div class="card mb-4">
-                  <img class="card-img-top d-none d-md-block" src="http://placehold.it/100x100" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Post Title</h5>
-                    </div>
-        
-                </div>
-              </div>
-              <!-- latest post -->
-  
-              
-                <!-- latest post -->
-            <div class="col-md-6 col-lg-3">
-              <div class="card mb-4">
-                <img class="card-img-top d-none d-md-block" src="http://placehold.it/100x100" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Post Title</h5>
-                  </div>
-      
-              </div>
-            </div>
-            <!-- latest post -->
-  
-  
-            
-  
-          </div> --}}
-  
-        
-        @include('partials.sidebar')
-        <!-- Sidebar Widgets Column -->
-        
-      </div>
-      </div>
-      <!-- /.row -->
-  
+    @endforelse --}}
+   {{--  {{$posts->appends(['search' => request()->query('search')])->links()}} --}}
     </div>
 
     
 @endsection
+
+
+
+{{-- <div class="card-footer text-muted">
+  Posted on January 1, 2020 by
+  <a href="#">Start Bootstrap</a>
+  {{$post->category->name}}
+  -
+  @foreach ($post->tags as $tag)
+  <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
+@endforeach --}}
+
+
+
+{{-- 
+             --}}
+
+
+            {{--         @include('partials.sidebar')
+ --}}        <!-- Sidebar Widgets Column -->

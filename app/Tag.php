@@ -14,4 +14,8 @@ class Tag extends Model
     {
         return $this->belongsToMany(Post::class);
     }
+
+    public function scopeOrderDesc($query){
+        return $query->orderBy('id', 'DESC');
+    }
 }

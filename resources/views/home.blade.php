@@ -71,6 +71,71 @@
                     <!-- -->
                     
                 </div>
+
+                
             </div>
+
+            <div class="card mt-2">
+
+                <div class="card-body row">
+                    <!-- Post Table-->
+                    <div class="col-md-7">
+                        @if ($posts->count()>0)
+                            <table class="table">
+                                <thead>
+                                    <th>Latest posts</th>
+                                    <th></th>                  
+                                </thead>
+                                <tbody>
+                                    @for ($i = 0; $i < min(5, $posts->count()) ; $i++) 
+                                    <tr>
+                                        <td>
+                                            
+                                            <a href="{{route('posts.edit',$posts[$i]->id)}}" >{{$posts[$i]->title}}</a>
+                                        </td>
+    
+  
+                                    </tr>
+                                    @endfor
+                                </tbody>    
+                            </table>
+                        @else
+                            <h3 class="text-center">No Posts found</h3>
+                        @endif
+                    </div>
+
+                    <!-- /Post Table-->
+                    <!-- User Table-->
+                    <div class="col-md-5">
+                        @if ($users->count()>0)
+                            <table class="table">
+                                <thead>
+                                    <th>Latest users</th>
+                                              <th></th>
+                                </thead>
+                                <tbody>
+                                    @for ($i = 0; $i < min(5, $users->count()) ; $i++) 
+                                    <tr>
+                                        <td>
+                                            {{$users[$i]->name}}
+                                        </td>
+                                        <td>
+                                            <a href="{{route('posts.edit',$users[$i]->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                        </td>
+                                    </tr>
+                                    @endfor
+                                </tbody>    
+                            </table>
+                        @else
+                            <h3 class="text-center">No Posts found</h3>
+                        @endif
+                        <!-- /User Table-->
+                    </div>
+                </div>
+
+                
+            </div>
+
+        
 
 @endsection

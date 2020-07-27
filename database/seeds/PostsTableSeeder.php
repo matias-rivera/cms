@@ -47,11 +47,9 @@ class PostsTableSeeder extends Seeder
         ]);
 
         $post1 = Post::create([
-            'title' => 'Laravel the best framework for PHP',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tempo
-            ra commodi quod. Voluptatum deleniti dolorem quasi, quis voluptate delectus a nos
-            trum doloremque soluta labore facilis neque rem vel dolore, necessitatibus illum a
-            ccusantium, expedita velit. Mollitia animi enim laudantium maiores nisi.',
+            'title' => 'El futuro de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
             'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
             nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
             . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
@@ -65,11 +63,9 @@ class PostsTableSeeder extends Seeder
             ]);
 
         $post2 = $author2->posts()->create([
-            'title' => 'Javascript the programming language most used',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tempo
-            ra commodi quod. Voluptatum deleniti dolorem quasi, quis voluptate delectus a nos
-            trum doloremque soluta labore facilis neque rem vel dolore, necessitatibus illum a
-            ccusantium, expedita velit. Mollitia animi enim laudantium maiores nisi.',
+            'title' => 'El futuro 2 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
             'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
             nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
             . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
@@ -82,11 +78,9 @@ class PostsTableSeeder extends Seeder
             ]);
 
         $post3 = $author1->posts()->create([
-            'title' => 'The title for a thirs post',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tempo
-            ra commodi quod. Voluptatum deleniti dolorem quasi, quis voluptate delectus a nos
-            trum doloremque soluta labore facilis neque rem vel dolore, necessitatibus illum a
-            ccusantium, expedita velit. Mollitia animi enim laudantium maiores nisi.',
+            'title' => 'El futuro 3 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
             'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
             nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
             . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
@@ -99,11 +93,9 @@ class PostsTableSeeder extends Seeder
             ]);
 
         $post4 = $author2->posts()->create([
-            'title' => 'No its easy to get a job being a junior programmer',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tempo
-            ra commodi quod. Voluptatum deleniti dolorem quasi, quis voluptate delectus a nos
-            trum doloremque soluta labore facilis neque rem vel dolore, necessitatibus illum a
-            ccusantium, expedita velit. Mollitia animi enim laudantium maiores nisi.',
+            'title' => 'El futuro 4 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
             'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
             nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
             . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
@@ -114,6 +106,136 @@ class PostsTableSeeder extends Seeder
             'image' => 'posts/4.jpg'
             
             ]);
+
+        $post5 = $author2->posts()->create([
+            'title' => 'El futuro 5 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/4.jpg'
+            
+            ]);
+
+        $post6 = $author2->posts()->create([
+            'title' => 'El futuro 6 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]);
+        $post7 = $author2->posts()->create([
+            'title' => 'El futuro 7 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/4.jpg'
+            
+            ]);
+        $post8 = $author2->posts()->create([
+            'title' => 'El futuro 8 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/4.jpg'
+            
+            ]);
+        $post9 = $author2->posts()->create([
+            'title' => 'El futuro 9 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]);
+        $post10 = $author2->posts()->create([
+            'title' => 'El futuro 10 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]);
+
+        $post11 = $author2->posts()->create([
+            'title' => 'El futuro 11 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]);
+
+      /*   $post12 = $author2->posts()->create([
+            'title' => 'El futuro 12 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]);
+        $post13 = $author2->posts()->create([
+            'title' => 'El futuro 13 de la cuarentena en la provincia de Buenos Aires: entre la preocupación de Kicillof y las dudas de los intendentes ',
+            'description' => 'El gobernador y su equipo junto a los jefes comunales del AMBA definirán en los próximos días nuevas medidas. “Hay que restringir la circ
+            ulación de personas solamente a lo básico y lo esencial”, sostuvo la ministra de Gobierno bonaerense, Teresa García, en diálogo con Infobae',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel obcaecati eius ut mi
+            nima sequi, soluta in assumenda eveniet ullam ea ad ipsa similique excepturi animi, debitis nam
+            . Architecto, illo doloribus amet odio necessitatibus dolores commodi cum error quisquam. Dicta deserunt
+             nam enim tempore alias velit, fuga perferendis quasi! Quibusdam accusamus iusto sit eos, provident velit
+              exercitationem hic corporis laudantium debitis aliquam adipisci ab aliquid cum aperi am minima sequi quas?
+             Ipsam iste obcaecati, assumenda similique architecto fugiat tempora consequuntur labore dicta.',
+            'category_id' => $category2->id,
+            'image' => 'posts/5.jpg'
+            
+            ]); */
 
         $tag1 = Tag::create([
             'name' => 'tag1'

@@ -16,7 +16,7 @@ class WelcomeController extends Controller
         return view('welcome')
         ->with('categories',Category::all())
         ->with('tags',Tag::all())
-        ->with('posts',Post::searched()->orderBy('id', 'DESC')->paginate(4));
+        ->with('posts',Post::searched()->orderBy('id', 'DESC')->get());
 
     }
 }

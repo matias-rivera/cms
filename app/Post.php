@@ -45,6 +45,10 @@ class Post extends Model
         return $query->where('published_at','<=',now());
     }
 
+    public function scopeOrderDesc($query){
+        return $query->orderBy('id', 'DESC');
+    }
+
     public function scopeSearched($query){
 
         $search = request()->query('search');

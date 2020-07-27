@@ -230,6 +230,14 @@
             
             
                                     </ul>
+
+
+                                    {{-- <div class="card mt-5">
+                                        <div class="card-header">Disk Space</div>
+                                        <div class="card-body">
+                                            {{round(((disk_total_space(app_path()))/1024)/1024/1024 , 2)}}
+                                        </div>
+                                    </div> --}}
             
                                 </div>
             

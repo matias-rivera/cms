@@ -31,8 +31,8 @@ class HomeController extends Controller
 
         return view('home')
         ->with('categories',Category::all())
-        ->with('tags',Tag::all())
-        ->with('posts',Post::all())
-        ->with('users',User::all());
+        ->with('tags',Tag::orderDesc()->get())
+        ->with('posts',Post::orderDesc()->get())
+        ->with('users',User::orderDesc()->get());
     }
 }

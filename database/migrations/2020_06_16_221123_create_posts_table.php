@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->integer('category_id');
             $table->timestamp('published_at')->nullabe();
+            $table->integer('visits')->default(0);
             $table->timestamps();
         });
     }

@@ -15,4 +15,8 @@ public function posts(){
     return $this->hasMany(Post::class);
 }
 
+public function scopeOrderDesc($query){
+    return $query->orderBy('id', 'DESC');
+}
+
 }

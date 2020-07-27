@@ -11,7 +11,9 @@ use App\Tag;
 class PostsController extends Controller
 {
     public function show(Post $post){
-
+        $post->increment('visits');
+        $post->category()->increment('visits');
+        $post->tags()->increment('visits');
         return view('blog.show')->with('post',$post)
         ->with('categories',Category::all())
         ->with('tags',Tag::all());;

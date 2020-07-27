@@ -150,6 +150,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
+    @yield('js')
 {{--     <script src="{{asset('js/page.min.js')}}"></script> --}}
 
 

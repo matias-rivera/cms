@@ -7,16 +7,7 @@
 
 @section('header')
           
-        <header class="masthead">
-          <div class="container h-100">
-            <div class="row h-100 align-items-center">
-              <div class="col-12 text-center">
-                <h1 class="font-weight-light">{{$category->name}}</h1>
-                <p class="lead"></p>
-              </div>
-            </div>
-          </div>
-        </header>
+        @include('partials.headerBar')
     
 @endsection
 
@@ -25,42 +16,39 @@
     <!-- Main Content -->
 
 
-    <div class="container">
-
+    <div class="container mt-4">
+      <hr>
       <div class="row">
   
         <!-- Blog Entries Column -->
         <div class="col-md-8">
+              <h1 class="text-dark">{{$category->name}}</h1>
+              <h6 class="text-dark">Last Posts</h6>
+          <hr>
   
-          <h1 class="my-4">{{$category->name}}
-            <small>Últimos posts</small>
-          </h1>
-  
-  
-  
-            @forelse ($posts as $post)
+            @forelse ($postsSearched as $post)
             <!-- Blog Post -->
-            <div class="card mb-4">
-    
-              <a href="{{route('blog.show',$post->id)}}">
-                <img class="card-img-top" src="{{asset("storage/".$post->image)}}" alt="Card image cap">
-              </a>
-              <div class="card-body">
-                <a href="{{route('blog.show',$post->id)}}">
-                <h2 class="card-title">{{$post->title}}</h2>
-                </a>
-                <p class="card-text">{{$post->description}}</p>
-              </div>
-              <div class="card-footer text-muted">
-                {{-- Posted on January 1, 2020 by
-                <a href="#">Start Bootstrap</a> --}}
-                {{$post->category->name}}
-                -
-                @foreach ($post->tags as $tag)
-                    <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
-                  @endforeach
-              </div>
-            </div>
+         
+                <div class="row">
+
+                  <div class="col-lg-6">
+                    <a href="{{route('blog.show',$post->id)}}">
+                      <img class="" style="width:100%; height:100%" src="{{asset("storage/".$post->image)}}" alt="Card image cap">
+                    </a>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <a href="{{route('blog.show',$post->id)}}">
+                    <h5 class="text-dark">{{$post->title}}</h5>
+                    </a>
+                    <p class="h6 text-secondary d-none d-sm-block">{{$post->description}}</p>
+                  </div>
+
+                </div>
+
+                <hr>
+              
+              
+          
   
             @empty
             <p class="text-center">
@@ -69,7 +57,7 @@
             
             @endforelse
   
-          {{$posts->appends(['search' => request()->query('search')])->links()}}
+            {{$postsSearched->appends(['search' => request()->query('search')])->links()}}
             </div>
          
   

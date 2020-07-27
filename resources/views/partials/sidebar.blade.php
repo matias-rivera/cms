@@ -54,7 +54,7 @@
           @endforeach
           </ul>
         @else
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-md-6">
             @for ($i = 0; $i < 4; $i++)
               <ul class="list-group">

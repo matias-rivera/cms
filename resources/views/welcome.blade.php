@@ -74,8 +74,8 @@
         <!-- Main Post Column -->
           <div class="col-md-8">  
             <!-- Main Post -->
-            <div class="bg-white border px-3 mt-2"> 
-                <a href="{{route('blog.show',$posts[0]->id)}}"><h2 class="pt-2">{{$posts[0]->title}}</h2></a>
+            <div class="bg-white  px-3 mt-2"> 
+                <a href="{{route('blog.show',$posts[0]->id)}}"><h2 class="pt-2 text-dark font-weight-bold">{{$posts[0]->title}}</h2></a>
                 <p class="">{{$posts[0]->description}}</p>
                 <a href="{{route('blog.show',$posts[0]->id)}}">
                 <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[0]->image)}}" style="width:100%" alt="Card image cap">
@@ -85,15 +85,15 @@
         <!-- Second Post Column -->
           <div class="col-md-4">  
             <!-- Second Post -->
-            <div class="bg-white border mt-2 px-3"> 
-              <a href="{{route('blog.show',$posts[1]->id)}}"><h6 class="pt-2">{{$posts[1]->title}}</h6></a>
+            <div class="bg-white mt-2 px-3"> 
+              <a href="{{route('blog.show',$posts[1]->id)}}"><h6 class="pt-2 text-dark font-weight-bold">{{$posts[1]->title}}</h6></a>
               <a href="{{route('blog.show',$posts[1]->id)}}">
               <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[1]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
               </a>  
             </div>
             <!-- Third Post -->
-            <div class="bg-white border mt-2 px-3"> 
-              <a href="{{route('blog.show',$posts[2]->id)}}"><h6 class="pt-2">{{$posts[2]->title}}</h6></a>
+            <div class="bg-white mt-2 px-3"> 
+              <a href="{{route('blog.show',$posts[2]->id)}}"><h6 class="pt-2 text-dark font-weight-bold">{{$posts[2]->title}}</h6></a>
               <a href="{{route('blog.show',$posts[2]->id)}}">
               <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[2]->image)}}" style="width:100%; max-height:180px" alt="Card image cap">
               </a>  
@@ -129,11 +129,11 @@
                   
               @if (isset($posts[$i]))
                 <div class= "{{$class}} mt-2"> 
-                  <div class="border mx-1">
+                  <div class=" mx-1">
 
                   
                   <div class="bg-white px-2 py-1">
-                  <a href="{{route('blog.show',$posts[$i]->id)}}"><h6 class="px-1">{{$posts[$i]->title}}</h6></a>
+                  <a href="{{route('blog.show',$posts[$i]->id)}}"><h6 class="px-1 text-dark font-weight-bold">{{$posts[$i]->title}}</h6></a>
                   <a href="{{route('blog.show',$posts[$i]->id)}}">
         
                   <img  class="img-responsive px-1 pb-1" src="{{asset("storage/".$posts[$i]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">

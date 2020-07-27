@@ -40,11 +40,6 @@
   </head>
 
   <body class="bg-light">
-
-
-
-
-
     <nav class="navbar navbar-expand-md ">
       <div class="container">
           <a class="navbar-brand" href="{{ url('/') }}">
@@ -103,10 +98,17 @@
               
           </div>
       </div>
+      
   </nav>
+
+
+    
+  
 
     <!-- Header -->
     @yield('header')
+
+
     <!-- Main Content -->
     @yield('content')
 

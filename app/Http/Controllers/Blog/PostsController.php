@@ -36,7 +36,8 @@ class PostsController extends Controller
 
         return view('blog.tag')
         ->with('tag',$tag)
-        ->with('posts',$tag->posts()->searched()->orderBy('id', 'DESC')->paginate(10))
+        ->with('postsSearched',$tag->posts()->searched()->orderBy('id', 'DESC')->paginate(10))
+        ->with('posts',Post::all())
         ->with('categories',Category::all())
         ->with('tags',Tag::all());
     }

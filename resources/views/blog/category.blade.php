@@ -66,7 +66,7 @@
         <!-- Sidebar Widgets Column -->
         
       </div>
-      </div>
+      
       <!-- /.row -->
   
     </div>

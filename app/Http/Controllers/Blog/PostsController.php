@@ -16,7 +16,8 @@ class PostsController extends Controller
         $post->tags()->increment('visits');
         return view('blog.show')->with('post',$post)
         ->with('categories',Category::all())
-        ->with('tags',Tag::all());;
+        ->with('tags',Tag::all())
+        ->with('posts',Post::all());
     }
 
     public function category(Category $category){

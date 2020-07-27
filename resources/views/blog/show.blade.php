@@ -9,40 +9,8 @@
 
 
 @section('header')
-    <!-- Header -->
-  {{--   <header class="header text-white h-fullscreen pb-80" style="background-image: url({{asset("storage/$post->image")}});" data-overlay="9">
-      <div class="container text-center">
 
-        <div class="row h-100">
-          <div class="col-lg-8 mx-auto align-self-center">
-
-            <p class="opacity-70 text-uppercase small ls-1">{{$post->category->name}}</p>
-            <h1 class="display-4 mt-7 mb-8">{{$post->title}}</h1>
-            <p><span class="opacity-70 mr-1">By</span> <a class="text-white" href="#">{{$post->user->name}}</a></p>
-            <p><img class="avatar avatar-sm" src="{{Gravatar::src($post->user->email)}}" alt="..."></p>
-
-          </div>
-
-          <div class="col-12 align-self-end text-center">
-            <a class="scroll-down-1 scroll-down-white" href="#section-content"><span></span></a>
-          </div>
-
-        </div>
-
-      </div>
-    </header> --}}
-    <!-- /.header -->
-
-    {{-- <header class="masthead vh-50" style="background-image: url({{asset("storage/$post->image")}});" >
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            
-          </div>
-        </div>
-      </div>
-    </header> --}}
-
+@include('partials.headerbar')
 
 
     
@@ -50,78 +18,65 @@
 
 
 @section('content')
-        <!-- Main Content -->
- {{--    <main class="main-content">
+  <div class="container mt-4 bg-white">
+    <hr>
+    <a href="{{route('blog.category',$post->category->id)}}"><h5 class="text-info text-uppercase">{{$post->category->name}}</h5></a>
+    <h1 class="font-weight-light text-left">{{$post->title}}</h1>
+        <p class="lead text-left">By {{$post->description}}</p>
+        <hr>
+    <div class="row">
+      <div class="col-md-8">
+        <h5 class="text-secondary">{{date('d-m-Y', strtotime($post->date))}}</h5>
 
-
-      <!--
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      | Blog content
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      !-->
-      <div class="section" id="section-content">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-
-                {!!$post->content!!}
-
-                <div class="addthis_inline_share_toolbox"></div> 
-             
-            </div>
-          </div>
-
-
-
-
-
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-
-              <div class="gap-xy-2 mt-6">
-                  
-                  @foreach ($post->tags as $tag)
-                    <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
-                  @endforeach
-              </div>
-
-            </div>
-          </div>
-
-
+        <!-- Date/Time -->
+        {{-- <p>Posted on January 1, 2019 at 12:00 PM</p> --}}
+        <img class="img-fluid rounded text-center" style="width:100%; height:100%"  src="{{asset("storage/$post->image")}}" alt="" >
+        <div class="text-left">
+          {!!$post->content!!}
         </div>
-      </div>
 
+        <div class="card my-4">
+          <h5 class="card-header bg-secondary text-white">Related Tags</h5>
+          <div class="card-body">
+            @foreach ($post->tags as $tag)
+             <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
+            @endforeach
+          </div>
+        </div>
+{{--          --}}
 
+        <div class="card my-4">
+          <h5 class="card-header bg-secondary text-white">You may interested</h5>
+          <div class="card-body">
+            <ul class="list-group list-group-horizontal-md">
+              @for ($i = 0; $i < min(3,$posts->count()); $i++)
+                <a href="{{route('blog.show',$posts[$i]->id)}}">
+                  <li class="list-group-item text-dark">
+                    <img class="img-fluid rounded text-center" style="max-height:150px;width:100%"  src="{{asset("storage/".$posts[$i]->image)}}" alt="" >
+                    <div class="mt-2">
+                      {{$posts[$i]->title}}
+                    </div>
+                  </li>
+                </a>
+              @endfor
+            </ul>
+          </div>
+        </div>
 
-      <!--
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      | Comments
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      !-->
-      <div class="section bg-gray">
-        <div class="container">
-
+        {{-- comments --}}
+        <div class="container mb-4">
           <div class="row">
-            <div class="col-lg-8 mx-auto">
-
-
-
+            <div class="col mx-auto">
               <hr>
               <div id="disqus_thread"></div>
               <script>
-              
-              /**
-              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-              
+
               var disqus_config = function () {
-              this.page.url = "{{config('app.url')}}/blog/posts/{{$post->id}}";  // Replace PAGE_URL with your page's canonical URL variable
-              this.page.identifier = "{{$post->id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              this.page.url = "{{config('app.url')}}/blog/posts/{{$post->id}}";  
+              this.page.identifier = "{{$post->id}}"; 
               };
               
-              (function() { // DON'T EDIT BELOW THIS LINE
+              (function() { 
               var d = document, s = d.createElement('script');
               s.src = 'https://blog-qgs8asipdl.disqus.com/embed.js';
               s.setAttribute('data-timestamp', +new Date());
@@ -129,117 +84,44 @@
               })();
               </script>
               <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                          
-
-
+                                
             </div>
           </div>
-
-        </div>
-      </div>
-
-
-
-    </main>
- --}}
-
-
-
-    <div class="container mt-4">
-
-      <div class="row">
-      
-        <div class="col-md-8">
-        
-          
-      <img class="img-fluid rounded text-center" style="width:100%; height:100%"  src="{{asset("storage/$post->image")}}" alt="" >
-
-      <hr>
-      <h1 class="font-weight-light text-center">{{$post->title}}</h1>
-      <p class="lead text-center">By {{$post->user->name}}</p>
-
-      <hr>
-
-      <!-- Date/Time -->
-      {{-- <p>Posted on January 1, 2019 at 12:00 PM</p> --}}
-      <p class="text-center">
-        {{$post->category->name}}
-
-      </p>
-      
- 
-
-      
-      <!-- Preview Image -->
-
-      <hr>
-
-      <!-- Post Content -->
-     
-   
-       
-
-   
-                {!!$post->content!!}
-
-
-
-
-
-
-     
-   
-      <hr>
-      @foreach ($post->tags as $tag)
-      <a class="badge badge-pill badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>
-    @endforeach
-
-      <!-- Comments Form -->
- 
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-
-
-
-            <hr>
-            <div id="disqus_thread"></div>
-            <script>
-            
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-            
-            var disqus_config = function () {
-            this.page.url = "{{config('app.url')}}/blog/posts/{{$post->id}}";  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "{{$post->id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://blog-qgs8asipdl.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                        
-
-
-          </div>
-        </div>
-
-      </div>
     
         </div>
 
-        <!---partials --->
-        @include('partials.sidebar')
-        <!-- end row -->
       </div>
 
+      
 
-</div>
+      
+        @include('partials.sidebar')
+      
+    </div>
+
+        
+ 
+
+    
+
+    <!-- Comments Form -->
+
+    
+
+      
+
+      <!---partials --->
+     
+      <!-- end row -->
+    
+
+
+  </div>
+
+
+ 
+
+
+
 
 @endsection

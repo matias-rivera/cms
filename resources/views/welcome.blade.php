@@ -63,18 +63,18 @@
         </div>
       </div>
     </main> --}}
-  
+    
 
-    <div class="container bg-light">
+    <div class="container ">
    {{--  @forelse ($posts as $post) --}}
-      @if ($posts->count() > 3)
+    @if ($posts->count()  > 3)
               
       <!-- Main Post Row -->
-      <div class=" row">
+      <div class="row ">
         <!-- Main Post Column -->
           <div class="col-md-8">  
             <!-- Main Post -->
-            <div class="bg-light  px-3 mt-2"> 
+            <div class="bg-white border px-3 mt-2"> 
                 <a href="{{route('blog.show',$posts[0]->id)}}"><h2 class="pt-2">{{$posts[0]->title}}</h2></a>
                 <p class="">{{$posts[0]->description}}</p>
                 <a href="{{route('blog.show',$posts[0]->id)}}">
@@ -85,14 +85,14 @@
         <!-- Second Post Column -->
           <div class="col-md-4">  
             <!-- Second Post -->
-            <div class="bg-light mt-2 px-3"> 
+            <div class="bg-white border mt-2 px-3"> 
               <a href="{{route('blog.show',$posts[1]->id)}}"><h6 class="pt-2">{{$posts[1]->title}}</h6></a>
               <a href="{{route('blog.show',$posts[1]->id)}}">
               <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[1]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
               </a>  
             </div>
             <!-- Third Post -->
-            <div class="bg-light mt-2 px-3"> 
+            <div class="bg-white border mt-2 px-3"> 
               <a href="{{route('blog.show',$posts[2]->id)}}"><h6 class="pt-2">{{$posts[2]->title}}</h6></a>
               <a href="{{route('blog.show',$posts[2]->id)}}">
               <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[2]->image)}}" style="width:100%; max-height:180px" alt="Card image cap">
@@ -101,67 +101,79 @@
           </div>
       </div>
       <!-- / Main Post Row -->
+    @endif
+
       @php
-      $index = 2;
-      $limit = 5;
-      $class = "col-md-4";
-      $four_row = false; 
-      @endphp
+        if($posts->count() > 3){
+          $index = 3;
+          $limit = 6;
+          $rows = getPostsRowsNumber($posts->count()-3);
+        }
+        else{
+          $index = 0;
+          $limit = 3;
+          $rows = 1;
+        }
+        $class = "col-md-4";
+        $four_row = false; 
         
+      @endphp
+
+      
       <!-- Post Row -->
-      @for ($j = 0; $j < 7; $j++)
+      @for ($j = 0; $j < $rows; $j++)
+     
+        <div class="row no-gutters">
+            @for ($i = $index; $i < $limit; $i++)
+                  <!-- Post -->
+                  
+              @if (isset($posts[$i]))
+                <div class= "{{$class}} mt-2"> 
+                  <div class="border mx-1">
 
-      @if ($limit > $posts->count())
-          @break
-      @endif
-      
-      
-      <hr class="my-1">
-      <div class="row no-gutters">
-          @for ($i = $index; $i < $limit; $i++)
-                <!-- Post -->
-            <div class= "{{$class}}"> 
-              <div class="bg-light mx-1 mt-1">
-              <a href="{{route('blog.show',$posts[$i]->id)}}"><h6 class="px-1">{{$posts[$i]->title}}</h6></a>
-              <a href="{{route('blog.show',$posts[$i]->id)}}">
-              <img  class="img-responsive px-1 pb-1" src="{{asset("storage/".$posts[$i]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
-              </a> 
-              </div> 
-            </div>
+                  
+                  <div class="bg-white px-2 py-1">
+                  <a href="{{route('blog.show',$posts[$i]->id)}}"><h6 class="px-1">{{$posts[$i]->title}}</h6></a>
+                  <a href="{{route('blog.show',$posts[$i]->id)}}">
+        
+                  <img  class="img-responsive px-1 pb-1" src="{{asset("storage/".$posts[$i]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
+                  </a> 
+                  </div> 
+                </div>
+                </div>
 
-            @if ($i == $limit - 1)
-                
-                  @php
-                      
-                      $index = $limit;
-                      if($four_row == false){
-                        $four_row = true;
-                        $limit = $limit + 4;
-                        $class = "col-md-3";
-                      }
-                      else{
-                        $four_row = false;
-                        $limit = $limit + 3;
-                        $class = "col-md-4";
-                      }
+              @endif
+            @endfor
 
-                  @endphp
-              @break
-            @endif
-            
-          @endfor
-         
-      </div>
+
+                      @php
+                          $index = $limit;
+                          if($four_row == false){
+                            $four_row = true;
+                            $limit = $limit + 4;
+                            $class = "col-md-3";
+                          }
+                          else{
+                            $four_row = false;
+                            $limit = $limit + 3;
+                            $class = "col-md-4";
+                          }
+                      @endphp
+          
+        </div>
 
       @endfor
 
+      @if($posts->count() == 0)
+        <p class="text-center">
+          No result found for query <strong>{{request()->query('search')}}</strong>
+        </p>
+      @endif
+        
 
-      
-    @endif
+    
 {{--     @empty
-            <p class="text-center">
-            No result found for query <strong>{{request()->query('search')}}</strong>
-            </p>
+            
             
     @endforelse --}}
    {{--  {{$posts->appends(['search' => request()->query('search')])->links()}} --}}

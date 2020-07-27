@@ -10,19 +10,12 @@
      
         
 
-        <ul class="list-inline">
-
-            @for ($i = 0; $i < min(14,$categories->count()); $i++)
-            
-            <li class="list-inline-item"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
-            @endfor
-
-        </ul>
+   
        
         {{-- Categories bar --}}
         <ul class="list-group list-group-horizontal">
             
-            @for ($i = 0; $i < min(10,$categories->count()); $i++)
+            @for ($i = 0; $i < min(8,$categories->count()); $i++)
             @php
             if($i == 3)
                 $categories_class = "d-none d-sm-block d-lg-block d-xl-block d-md-block";
@@ -37,7 +30,7 @@
             @endphp
            
                 @if (isset($categories[$i]))
-                    <li class="list-group-item flex-fill {{$categories_class}}"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
+                    <li class="list-group-item text-center flex-fill {{$categories_class}}"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
                 @endif
             @endfor
         </ul>

@@ -1,10 +1,10 @@
 
 
 
-  <div class="col-md-3">
+  <div class="col-md-4">
   
     <!-- Search Widget -->
-    <div class="card my-4">
+    {{-- <div class="card my-4">
       <h5 class="card-header bg-secondary text-white">Search</h5>
       <div class="card-body">
     
@@ -17,59 +17,79 @@
           </form>
      
       </div>
-    </div>
+    </div> --}}
 
     
 
     <!-- Side Tags -->
     <div class="card my-4">
-      <h5 class="card-header bg-secondary text-white">About</h5>
+      <h5 class="card-header bg-secondary text-white">Tops Posts</h5>
       <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+        <ul class="list-group">
+          @for ($i = 0; $i < min(5,$posts->count()); $i++)
+            <a href="{{route('blog.show',$posts[$i]->id)}}">
+              <li class="list-group-item text-dark">
+                <img class="img-fluid rounded text-center" style=""  src="{{asset("storage/".$posts[$i]->image)}}" alt="" >
+                <div class="mt-2">
+                  {{$i+1}} - {{$posts[$i]->title}}
+                </div>
+              </li>
+            </a>
+          @endfor
+        </ul>
       </div>
     </div>
 
     <!-- Categories Widget -->
     <div class="card my-4">
-      <h5 class="card-header bg-secondary text-white">Categories</h5>
+      <h5 class="card-header bg-secondary text-white">Top Categories</h5>
       <div class="card-body">
-        @foreach ($categories as $category)
-        <div class="col-6 "><a href="{{route('blog.category',$category->id)}}" class="text-secondary">{{$category->name}}</a></div>
-        @endforeach
-        {{-- <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Web Design</a>
-              </li>
-              <li>
-                <a href="#">HTML</a>
-              </li>
-              <li>
-                <a href="#">Freebies</a>
-              </li>
-            </ul>
+
+        @if ($categories->count() <= 4)
+          <ul class="list-group">
+          @foreach ($categories as $category)
+          <a href="{{route('blog.category',$category->id)}}" class="text-secondary">
+            <li class="list-group-item">{{$category->name}}</li>
+          </a>
+          @endforeach
+          </ul>
+        @else
+        <div class="row">
+          <div class="col-md-6">
+            @for ($i = 0; $i < 4; $i++)
+              <ul class="list-group">
+                <a href="{{route('blog.category',$categories[$i]->id)}}" class="text-secondary">
+                  <li class="list-group-item">{{$categories[$i]->name}}</li>
+                </a>
+              </ul>
+            @endfor
           </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">JavaScript</a>
-              </li>
-              <li>
-                <a href="#">CSS</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
-              </li>
-            </ul>
+          <div class="col-md-6">
+            @for ($i = 4; $i < min(8,$categories->count()); $i++)
+              <ul class="list-group">
+                <a href="{{route('blog.category',$categories[$i]->id)}}" class="text-secondary">
+                  <li class="list-group-item">{{$categories[$i]->name}}</li>
+                </a>
+              </ul>
+            @endfor
           </div>
-        </div> --}}
+        </div>
+        
+        @endif
+
+        
+          
+
+        
+
+        
+
       </div>
     </div>
 
     <!-- Side Tags -->
     <div class="card my-4">
-      <h5 class="card-header bg-secondary text-white">Tags</h5>
+      <h5 class="card-header bg-secondary text-white">Tops Tags</h5>
       <div class="card-body">
         @foreach ($tags as $tag)
         <a class="badge badge-secondary" href="{{route('blog.tag',$tag->id)}}">{{$tag->name}}</a>

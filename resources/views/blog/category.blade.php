@@ -17,7 +17,7 @@
 
 
     <div class="container mt-4">
-      <hr>
+     
       <div class="row">
   
         <!-- Blog Entries Column -->

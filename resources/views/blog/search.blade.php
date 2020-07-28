@@ -2,30 +2,28 @@
 
 
 @section('title')
-    Tag {{$tag->name}}
+{{request()->query('search')}}
 @endsection
 
 @section('header')
-
-@include('partials.headerbar')
-
+          
+        @include('partials.headerBar')
+    
 @endsection
 
 
 @section('content')
-
-
     <!-- Main Content -->
 
 
     <div class="container mt-4">
-  
+     
       <div class="row">
   
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-              <h1 class="text-dark">{{$tag->name}}</h1>
-              <h6 class="text-dark">Last Posts</h6>
+              <h1 class="text-dark">{{request()->query('search')}}</h1>
+
           <hr>
   
             @forelse ($postsSearched as $post)
@@ -74,7 +72,5 @@
     </div>
     
 
-{{-- SEPARTE --}}
-  
     
 @endsection

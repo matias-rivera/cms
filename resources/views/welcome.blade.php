@@ -65,7 +65,7 @@
     </main> --}}
     
 
-    <div class="container ">
+    <div class="container bg-white border">
    {{--  @forelse ($posts as $post) --}}
     @if ($posts->count()  > 3)
               
@@ -83,12 +83,12 @@
             </div>
           </div>
         <!-- Second Post Column -->
-          <div class="col-md-4">  
+          <div class="col-md-4 border-left">  
             <!-- Second Post -->
             <div class="bg-white mt-2 px-3"> 
               <a href="{{route('blog.show',$posts[1]->id)}}"><h6 class="pt-2 text-dark font-weight-bold">{{$posts[1]->title}}</h6></a>
               <a href="{{route('blog.show',$posts[1]->id)}}">
-              <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[1]->image)}}" style="width:100%; max-height:150px" alt="Card image cap">
+              <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[1]->image)}}" style="width:100%; max-height:180px" alt="Card image cap">
               </a>  
             </div>
             <!-- Third Post -->
@@ -101,6 +101,7 @@
           </div>
       </div>
       <!-- / Main Post Row -->
+      
     @endif
 
       @php
@@ -122,13 +123,13 @@
       
       <!-- Post Row -->
       @for ($j = 0; $j < $rows; $j++)
-     
+      <hr class="m-0 ">  
         <div class="row no-gutters">
             @for ($i = $index; $i < $limit; $i++)
                   <!-- Post -->
                   
               @if (isset($posts[$i]))
-                <div class= "{{$class}} mt-2"> 
+                <div class= "{{$class}} py-2"> 
                   <div class=" mx-1">
 
                   

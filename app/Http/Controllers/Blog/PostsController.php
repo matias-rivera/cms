@@ -42,6 +42,18 @@ class PostsController extends Controller
         ->with('tags',Tag::all());
     }
 
+    public function search(){
+
+        $search = request()->query('search');
+        $postsSearched = Post::where('title','LIKE',"%{$search}%");
+
+        return view('blog.search')
+        ->with('postsSearched',$postsSearched->orderBy('id', 'DESC')->paginate(5))
+        ->with('posts',Post::all())
+        ->with('categories',Category::all())
+        ->with('tags',Tag::all());
+    }
+
 }
 
 

@@ -17,7 +17,7 @@
             
             @for ($i = 0; $i < min(8,$categories->count()); $i++)
             @php
-            if($i == 3)
+            if($i == 2)
                 $categories_class = "d-none d-sm-block d-lg-block d-xl-block d-md-block";
             if($i > 3)
                 $categories_class = "d-none  d-sm-none d-lg-block d-xl-block d-md-block";
@@ -30,10 +30,12 @@
             @endphp
            
                 @if (isset($categories[$i]))
-                    <li class="list-group-item text-center flex-fill {{$categories_class}}"><a class="" href="{{route('blog.category',$categories[$i]->id)}}">{{$categories[$i]->name}}</a></li>
+                <a class="text-dark flex-fill {{$categories_class}}" href="{{route('blog.category',$categories[$i]->id)}}"><li class="list-group-item text-center  ">{{$categories[$i]->name}}</li></a>
                 @endif
             @endfor
         </ul>
       
     </div>
+
+    <hr>
 </header>

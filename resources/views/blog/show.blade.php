@@ -28,7 +28,7 @@
     <hr>
     <a href="{{route('blog.category',$post->category->id)}}"><h5 class="text-info text-uppercase">{{$post->category->name}}</h5></a>
     <h1 class="font-weight-light text-left">{{$post->title}}</h1>
-        <p class="lead text-left">By {{$post->description}}</p>
+        <p class="lead text-left">{{$post->description}}</p>
         <hr>
     <div class="row">
       <div class="col-md-8">

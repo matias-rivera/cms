@@ -11,7 +11,16 @@ use App\Post;
 class WelcomeController extends Controller
 {
     public function index(){
-    
+        
+        $search = request()->query('search');
+        if($search){
+            $postsSearched = Post::where('title','LIKE',"%{$search}%");
+            return view('blog.search')
+            ->with('postsSearched',$postsSearched->orderBy('id', 'DESC')->paginate(5))
+            ->with('posts',Post::all())
+            ->with('categories',Category::all())
+            ->with('tags',Tag::all());
+        }
 
         return view('welcome')
         ->with('categories',Category::all())

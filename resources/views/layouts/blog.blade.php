@@ -48,10 +48,6 @@
   <body class="bg-light">
 
 
-<style>
-
-
-</style>
   <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-between">
 
     <div class="container">

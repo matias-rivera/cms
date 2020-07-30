@@ -65,7 +65,7 @@
     </main> --}}
     
 
-    <div class="container bg-white border">
+    <div class="container bg-white border p-0">
    {{--  @forelse ($posts as $post) --}}
     @if ($posts->count()  > 3)
               
@@ -78,7 +78,7 @@
                 <a href="{{route('blog.show',$posts[0]->id)}}"><h2 class="pt-2 text-dark font-weight-bold">{{$posts[0]->title}}</h2></a>
                 <p class="">{{$posts[0]->description}}</p>
                 <a href="{{route('blog.show',$posts[0]->id)}}">
-                <img  class="img-responsive pb-3 " src="{{asset("storage/".$posts[0]->image)}}" style="width:100%" alt="Card image cap">
+                <img  class="img-responsive mb-3 " src="{{asset("storage/".$posts[0]->image)}}" style="width:100%" alt="Card image cap">
                 </a>  
             </div>
           </div>

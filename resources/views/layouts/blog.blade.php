@@ -34,9 +34,7 @@
 
     @yield('css')
 
-    <!-- Favicons -->
-{{--     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="icon" href="{{asset('img/favicon.png')}}"> --}}
+
     <style>
         img{
           max-width: 750px;
@@ -45,12 +43,12 @@
       </style>
   </head>
 
-  <body class="bg-light">
+  <body class="bg-light" >
 
-
+{{-- navbar --}}
   <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-between">
 
-    <div class="container">
+    <div class="container ">
       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
             <span class="navbar-toggler-icon"></span>
@@ -98,9 +96,9 @@
                           {{ __('Logout') }}
                       </a>
 
-                      <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
+                     {{--  <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
                          My Profile
-                      </a>
+                      </a> --}}
 
                       @if (auth()->user()->isWriter())                                        
                             <a class="dropdown-item" href="{{route('home')}}">Panel</li></a>
@@ -122,6 +120,7 @@
 
 
 
+  <div class="container min-vh-100">
     
   
 
@@ -133,37 +132,17 @@
     @yield('content')
 
 
-    <!-- Footer -->
- {{--    <footer class="footer">
-      <div class="container">
-        <div class="row gap-y align-items-center">
 
-          <div class="col-6 col-lg-3">
-            <a href="/"><img src="{{asset('img/logo-dark.png')}}" alt="logo"></a>
-          </div>
 
-          <div class="col-6 col-lg-3 text-right order-lg-last">
-            <div class="social">
-              <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-facebook"></i></a>
-              <a class="social-twitter" href="https://twitter.com/thethemeio"><i class="fa fa-twitter"></i></a>
-              <a class="social-instagram" href="https://www.instagram.com/thethemeio/"><i class="fa fa-instagram"></i></a>
-              <a class="social-dribbble" href="https://dribbble.com/thethemeio"><i class="fa fa-dribbble"></i></a>
-            </div>
-          </div>
+  </div>
+     <!-- /.container -->
 
-          <div class="col-lg-6">
-  
-          </div>
 
-        </div>
-      </div>
-    </footer> --}}
-    <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-dark ">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Matias Rivera 2020</p>
       </div>
-      <!-- /.container -->
-    </footer>
+  </footer>
     
     <!-- /.footer -->
 

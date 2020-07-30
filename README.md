@@ -31,3 +31,9 @@ php artisan storage:link
 ```
 
 This will create the linked folder to upload post images.
+
+_Default user_
+
+*user: root@admin.com
+
+*pass: root
